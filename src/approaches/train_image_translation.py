@@ -340,7 +340,7 @@ class Image_translation_block():
 
             image_in, image_out = image_in.to(device), image_out.to(device)
 
-            writer = cv2.VideoWriter('tmp_{:04d}.mp4'.format(i), cv2.VideoWriter_fourcc(*'mjpg'), 25, (256*4, 256))
+            writer = cv2.VideoWriter('tmp_{:04d}.mp4'.format(i), cv2.VideoWriter_fourcc(*'mp4v'), 25, (256*4, 256))
 
             for j in range(image_in.shape[0] // 16):
                 g_out = self.G(image_in[j*16:j*16+16])
@@ -383,7 +383,7 @@ class Image_translation_block():
             fls[:, 0::3] += 130
             fls[:, 1::3] += 80
 
-        writer = cv2.VideoWriter('out.mp4', cv2.VideoWriter_fourcc(*'mjpg'), 62.5, (256 * 3, 256))
+        writer = cv2.VideoWriter('out.mp4', cv2.VideoWriter_fourcc(*'mp4v'), 62.5, (256 * 3, 256))
 
         for i, frame in enumerate(fls):
 
